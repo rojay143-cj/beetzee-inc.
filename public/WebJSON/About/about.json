@@ -1,0 +1,20 @@
+{
+    "aboutus_title": "about us",
+    "aboutus_description": "Beetzee is a production studio founded by creatives, for creatives, with the mission to nurture, hone, and share artistic talent. Their philosophy centers on recognizing and developing artistry to its full potential. This is encapsulated in their guiding principle: \"Create. Collaborate. Elevate.\"\r\n\r\nBeetzee collaborates with local governments and organizations to elevate the creative sector. In November 2024, they partnered with the Dumaguete city government and the Department of Trade and Industry to launch events providing training and opportunities for artists, aiming to position Dumaguete as a leading creative hub in Asia by 2030.",
+    "service_images": {
+        "aboutus_bg": "WebJSON\/About\/web_images\/1742347292_aboutus_bg.jpg",
+        "aboutcontent1_img1": "WebJSON\/About\/web_images\/1742347961_aboutcontent1_img1.jpg",
+        "content2_img2": "WebJSON\/About\/web_images\/1742347961_content2_img2.jpg",
+        "content3_img3": "WebJSON\/About\/web_images\/1742347961_content3_img3.jpg"
+    },
+    "aboutcontent1_title1": "Who we are?",
+    "content1_description1": "Rhythm is our universal language to connect with the world. We are as a team of creative rhythm makers, performers, educators, artists, and most importantly, ever-changing innovators. We redefine rhythm. We create new possibilities. We turn ideas into reality.",
+    "aboutcontent2_title2": "Mission",
+    "content2_description2": "Bridging AI and Reality to create Inclusivity through rhythm",
+    "aboutcontent3_title3": "Vision",
+    "content3_description3": "Be Asia's leading rhythm-based edutainment platform",
+    "aboutus_bg": [],
+    "aboutcontent1_img1": {},
+    "content2_img2": {},
+    "content3_img3": {}
+}

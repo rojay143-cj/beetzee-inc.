@@ -1,0 +1,21 @@
+{
+    "service_title": "Services",
+    "service_description": "Our multimedia services blend state-of-the-art technology and artistic expertise, bringing stories to life across vibrant photos, engaging videos, and immersive audio. let us tailor a captivating digital narrative for you, anhanced with stunning visuals that elevate your message to new heights.",
+    "service_images": {
+        "0": "WebJSON\/Services\/web_images\/1741932448_serve_img1.jpg",
+        "serve_img1": "WebJSON\/Services\/web_images\/1741933343_serve_img1.jpg",
+        "serve_img2": "WebJSON\/Services\/web_images\/1741933343_serve_img2.jpg",
+        "serve_img3": "WebJSON\/Services\/web_images\/1741933343_serve_img3.jpg"
+    },
+    "serve_text1": "vibrant photos",
+    "serve_text2": "engaging videos",
+    "serve_text3": "immersive audio",
+    "servesec2_title": "Studio Pricing",
+    "servesub_title": "Booking and usage policies",
+    "price_img1": "WebJSON\/Services\/web_images\/1742268628_price_img1.png",
+    "price_img2": "WebJSON\/Services\/web_images\/1742268729_price_img2.png",
+    "servesec3_title1": "Card",
+    "servesec3_title2": "Poster",
+    "servesec3_src1": "https:\/\/www.canva.com\/design\/DAGhlZewn6M\/EozNtmRm2UwtzG7_G7xTdA\/view?embed",
+    "servesec3_src2": "https:\/\/www.canva.com\/design\/DAGhZ1f4J-4\/W-OvHHogVtGJ42U4xNOSrg\/view?embed"
+}
