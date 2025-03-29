@@ -15,35 +15,40 @@ return new class extends Migration
         Schema::create('discount', function (Blueprint $table) {
             $table->id('id')->index('discount_id');
             $table->integer('percentage');
+            $table->string('percent_name');
             $table->integer('limit');
             $table->timestamps();
         });
         DB::table('discount')->insert([
             [
-                'id' => 0,
+                'id' => 1,
                 'percentage' => 0,
                 'limit' => 0,
+                'percent_name' => '1st',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'id' => 7,
+                'id' => 2,
                 'percentage' => 7,
                 'limit' => 20000,
+                'percent_name' => '2nd',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'id' => 15,
+                'id' => 3,
                 'percentage' => 15,
                 'limit' => 100000,
+                'percent_name' => '3rd',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'id' => 20,
+                'id' => 4,
                 'percentage' => 20,
                 'limit' => 500000,
+                'percent_name' => '4th',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

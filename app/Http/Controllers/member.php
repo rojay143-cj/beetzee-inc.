@@ -16,25 +16,25 @@ class member extends Controller
         ]);
 
         $expense = DB::table('expenses')->where('user_id', $validate['user_id'])->first();
-
+        $discount = DB::table('discount')->get();
         $newExpense = ($expense ? $expense->amount : 0) + $validate['amount'];
 
         $discountNumber = 0;
         switch (true) {
-            case $newExpense >= 500000:
-                $discountNumber = 20;
+            case $newExpense >= $discount[3]->limit:
+                $discountNumber = $discount[3]->percentage;
                 break;
-            case $newExpense >= 100000:
-                $discountNumber = 15;
+            case $newExpense >= $discount[2]->limit:
+                $discountNumber = $discount[2]->percentage;
                 break;
-            case $newExpense >= 20000:
-                $discountNumber = 7;
+            case $newExpense >= $discount[1]->limit:
+                $discountNumber = $discount[1]->percentage;
                 break;
             default:
-                $discountNumber = 0;
+                $discountNumber = $discount[0]->percentage;
         }
 
-        $milestones = [20000, 100000, 500000];
+        $milestones = [$discount[1]->limit, $discount[2]->limit, $discount[3]->limit];
         $balance = 0;
         foreach ($milestones as $threshold) {
             if ($newExpense < $threshold) {

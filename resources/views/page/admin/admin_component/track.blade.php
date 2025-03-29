@@ -39,10 +39,10 @@
                         <p class="mt-2">{{ $user->role_name }}</p>
                         </div>
                         <div class="text-[#E4E4E4]">
-                            @if($user->discount_id == 0)
-                            <span class="bg-green-600 p-2 text-[8px] lg:text-[10px] font-[700] uppercase rounded-lg">0% Discount</span>
+                            @if($user->discount_id != 0)
+                            <span class="bg-green-600 p-2 text-[8px] lg:text-[10px] font-[700] uppercase rounded-lg">{{ $user->discount_id }}% Discount</span>
                             @else
-                            <span class="bg-green-600 p-2 text-[8px] lg:text-[10px] font-[700] uppercase rounded-lg">{{ $user->percentage }}% Discount</span>
+                            <span class="bg-red-600 p-2 text-[8px] lg:text-[10px] font-[700] uppercase rounded-lg">Pay to get discounts</span>
                             @endif
                         </div>
                     </div>
