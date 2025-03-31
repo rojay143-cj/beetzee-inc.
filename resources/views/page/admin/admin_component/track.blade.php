@@ -16,10 +16,10 @@
         class="mb-20 mt-5 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full h-auto place-items-center gap-3 overflow-x-hidden overflow-y-auto scrollbar max-h-[40rem]">
         @foreach ($users as $user)
             @php
-                $bgColor = match ($user->percentage) {
-                    7 => 'bg-[#CD7F32]',
-                    15 => 'bg-[#C0C0C0]',
-                    20 => 'bg-[#FFD700]',
+                $bgColor = match ($user->discount_id) {
+                    $disc[1]->percentage => 'bg-[#CD7F32]',
+                    $disc[2]->percentage => 'bg-[#C0C0C0]',
+                    $disc[3]->percentage => 'bg-[#FFD700]',
                     default => 'bg-[#34313e]',
                 };
             @endphp
@@ -42,7 +42,7 @@
                             @if($user->discount_id != 0)
                             <span class="bg-green-600 p-2 text-[8px] lg:text-[10px] font-[700] uppercase rounded-lg">{{ $user->discount_id }}% Discount</span>
                             @else
-                            <span class="bg-red-600 p-2 text-[8px] lg:text-[10px] font-[700] uppercase rounded-lg">Pay to get discounts</span>
+                            <span class="bg-red-600 p-2 text-[8px] lg:text-[10px] font-[700] uppercase rounded-lg">No Discounts</span>
                             @endif
                         </div>
                     </div>
@@ -57,12 +57,12 @@
                     </div>
                     <div class="relative roboto font-[500] text-[10px] lg:text-[12px] flex flex-col gap-2">
                         <p><i class="fa-solid fa-money-bill"></i> Balance: ₱{{ number_format($user->balance) }}</p>
-                        @if($user->discount_id == 0)
-                        <p><i class="fa-solid fa-heart-circle-check"></i> Percentage of: 7%</p>
-                        @elseif ($user->discount_id == 7)
-                        <p><i class="fa-solid fa-heart-circle-check"></i> Percentage of: 15%</p>
-                        @elseif ($user->discount_id == 15)
-                        <p><i class="fa-solid fa-heart-circle-check"></i> Percentage of: 20%</p>
+                        @if($user->discount_id === $disc[0]->percentage)
+                        <p><i class="fa-solid fa-heart-circle-check"></i> Percentage of: {{$disc[1]->percentage}}%</p>
+                        @elseif ($user->discount_id === $disc[1]->percentage)
+                        <p><i class="fa-solid fa-heart-circle-check"></i> Percentage of: {{$disc[2]->percentage}}%</p>
+                        @elseif ($user->discount_id === $disc[2]->percentage)
+                        <p><i class="fa-solid fa-heart-circle-check"></i> Percentage of: {{$disc[3]->percentage}}%</p>
                         @else
                         <p><i class="fa-solid fa-heart-circle-check"></i> Premium customer</p>
                         @endif

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('percentage');
             $table->string('percent_name');
             $table->integer('limit');
+            $table->integer('target');
             $table->timestamps();
         });
         DB::table('discount')->insert([
@@ -25,6 +26,7 @@ return new class extends Migration
                 'percentage' => 0,
                 'limit' => 0,
                 'percent_name' => '1st',
+                'target' => 7,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -33,6 +35,7 @@ return new class extends Migration
                 'percentage' => 7,
                 'limit' => 20000,
                 'percent_name' => '2nd',
+                'target' => 15,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -41,6 +44,7 @@ return new class extends Migration
                 'percentage' => 15,
                 'limit' => 100000,
                 'percent_name' => '3rd',
+                'target' => 20,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -49,6 +53,7 @@ return new class extends Migration
                 'percentage' => 20,
                 'limit' => 500000,
                 'percent_name' => '4th',
+                'target' => 30,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
