@@ -78,24 +78,118 @@ class member extends Controller
                 ]);
             } else {
                 return redirect()->back()->with('error', 'No expense record found for this user.');
-            }          
+            }
             return redirect()->back()->with('success', 'Payment Successful');
         } else {
             return redirect()->back()->with('error', 'Payment Failed');
         }
     }
-    public function subscription(Request $request) {
+    public function discount(Request $request)
+    {
+        $validate = $request->validate([
+            'per_cent' => 'required|integer',
+            'per_amount' => 'required|integer',
+            'target' => 'required|integer',
+        ]);
+
+        $discount = DB::table('discount')->insert([
+            'percentage' => $validate['per_cent'],
+            'limit' => $validate['per_amount'],
+            'target' => $validate['target'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        if ($discount) {
+            return redirect()->back()->with('success', 'Discount Added Successfully');
+        } else {
+            return redirect()->back()->with('error', 'Discount Not Added');
+        }
+    }
+    public function Insertdiscount(Request $request)
+    {
+        $validate = $request->validate([
+            'per_cent' => 'required|integer',
+            'per_amount' => 'required|integer',
+            'target' => 'required|integer',
+        ]);
+
+        $discount = DB::table('discount')->insert([
+            'percentage' => $validate['per_cent'],
+            'limit' => $validate['per_amount'],
+            'target' => $validate['target'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        if ($discount) {
+            return redirect()->back()->with('success', 'Discount Added Successfully');
+        } else {
+            return redirect()->back()->with('error', 'Discount Not Added');
+        }
+    }
+    public function Updatediscount(Request $request)
+    {
+        $validate = $request->validate([
+            'discount_id' => 'required|integer',
+            'per_cent' => 'nullable|integer',
+            'per_amount' => 'nullable|integer',
+            'target' => 'nullable|integer',
+        ]);
+
+        $updateData = [];
+        if ($request->filled('per_cent')) {
+            $updateData['percentage'] = $request->per_cent;
+        }
+        if ($request->filled('per_amount')) {
+            $updateData['limit'] = $request->per_amount;
+        }
+        if ($request->filled('target')) {
+            $updateData['target'] = $request->target;
+        }
+
+        if (!empty($updateData)) {
+            $updateData['updated_at'] = now();
+
+            $updateDiscount = DB::table('discount')
+                ->where('id', $validate['discount_id'])
+                ->update($updateData);
+
+            if ($updateDiscount) {
+                return redirect()->back()->with('success', 'Discount Updated Successfully');
+            }
+        }
+
+        return redirect()->back()->with('error', 'No changes made');
+    }
+    public function Deletediscount(Request $request)
+    {
+        $validate = $request->validate([
+            'discount_id' => 'required|integer',
+        ]);
+
+        $deleteDiscount = DB::table('discount')
+            ->where('id', $validate['discount_id'])
+            ->delete();
+
+        if ($deleteDiscount) {
+            return redirect()->back()->with('success', 'Discount Deleted Successfully');
+        }
+
+        return redirect()->back()->with('error', 'Discount Not Deleted');
+    }
+    public function subscription(Request $request)
+    {
         $user = Auth::user();
 
         $currentSubscription = DB::table('users')->where('id', $user->id)->value('subscription');
-    
+
         $newSubscription = ($currentSubscription === null || $currentSubscription === 'Subscribe') ? 'Unsubscribe' : 'Subscribe';
-    
+
         DB::table('users')->where('id', $user->id)->update([
             'subscription' => $newSubscription
         ]);
-    
+
         return redirect()->back()->with('success', 'Subscription status updated successfully.');
     }
-    
 }

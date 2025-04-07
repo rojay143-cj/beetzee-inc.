@@ -15,6 +15,7 @@
             @include('page.admin.admin_component.register')
             @include('page.admin.admin_component.track')
             @include('page.admin.admin_component.transaction')
+            @include('page.admin.admin_component.discount')
             @include('page.admin.admin_component.webcontent')
             @include('page.user_view')
             <div class="w-[18rem] h-auto absolute bottom-3 mx-auto left-0 right-0 z-50">

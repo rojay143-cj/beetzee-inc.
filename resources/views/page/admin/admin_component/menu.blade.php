@@ -23,6 +23,9 @@
                 <li id="ACCOUNTLINK">
                     <button class="menu-btn">Add Account</button>
                 </li>
+                <li class="DISCOUNT">
+                    <button class="menu-btn">Discount</button>
+                </li>
                 <li id="TRANSACTIONLINK">
                     <button class="menu-btn">Transaction</button>
                 </li>

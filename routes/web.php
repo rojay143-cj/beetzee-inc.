@@ -22,6 +22,9 @@ Route::group(['middleware' => 'is_admin'], function () {
     Route::post('/profile',[login::class, 'profile'])->name('profile');
     Route::post('/pay',[member::class, 'pay'])->name('pay');
     Route::post('/admin_reg', [login::class, 'admin_reg'])->name('admin_reg');
+    Route::post('/Insertdiscount', [member::class, 'Insertdiscount'])->name('Insertdiscount');
+    Route::post('/Updatediscount', [member::class, 'Updatediscount'])->name('Updatediscount');
+    Route::post('/Deletediscount', [member::class, 'Deletediscount'])->name('Deletediscount');
 
     //Update Subscription
     Route::post('/subscribe', [member::class, 'subscription'])->name('subscribe');
