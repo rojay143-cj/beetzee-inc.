@@ -73,7 +73,7 @@
     </div> 
     @endif
     <div id="payment_div" class="absolute top-0 left-0 flex justify-center items-center w-full h-full bg-[#000000] bg-opacity-80 z-50" style="display: none">
-        <form action="{{ route('pay') }}" method="POST" id="payment" class="relative bg-[#1a1a1e] p-5 rounded-lg flex flex-col gap-2">
+        <form action="{{ route('pay') }}" method="POST" enctype="multipart/form-data" id="payment" class="relative bg-[#1a1a1e] p-5 rounded-lg flex flex-col gap-2">
             @csrf
             <input type="hidden" name="user_id" id="user_id" value="">
             <div class="absolute top-[-10%] w-[80%] mx-auto text-center left-0 right-0 uppercase font-[700] bg-opacity-100 rounded-lg bg-[#393E46] p-2">
@@ -83,7 +83,20 @@
                 <label for="amount">Amount</label>
                 <div class="flex items-center">
                     <i class="fa-solid fa-peso-sign absolute left-8"></i>
-                    <input type="text" name="amount" id="amount" placeholder="0.00" class="bg-[#34313e] p-2 pl-10 px-20 text-[#e4e4e4]">
+                    <input type="text" name="amount" id="amount" placeholder="0.00" class="bg-[#34313e] p-2 pl-10 px-20 w-full text-[#e4e4e4]">
+                </div>
+            </div>
+            <div class="flex flex-col justify-start gap-3 mt-5">
+                <label for="ref_num">Reference No.</label>
+                <div class="flex items-center">
+                    <i class="fa-solid fa-receipt absolute left-8"></i>
+                    <input type="text" name="ref_num" id="ref_num" placeholder="Enter your reference number" class="bg-[#34313e] p-2 pl-10 px-20 w-full text-[#e4e4e4]">
+                </div>
+            </div>
+            <div class="flex flex-col justify-start gap-3 mt-5">
+                <label for="receipt">Upload proof</label>
+                <div class="flex items-center">
+                    <input type="file" name="receipt" id="receipt" class="bg-[#34313e] p-2 text-[#e4e4e4]">
                 </div>
             </div>
             <div class="flex justify-evenly mt-5">

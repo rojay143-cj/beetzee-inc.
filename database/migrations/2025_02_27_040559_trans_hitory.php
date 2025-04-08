@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('trans_hitory', function (Blueprint $table) {
             $table->id()->index('trans_hitory_id');
             $table->foreignId('expense_id');
+            $table->string('receipt_img')->nullable();
+            $table->string('ref_num')->nullable()->unique();
             $table->integer('amount');
             $table->string('status');
             $table->string('type');
-            $table->string('ref_num')->nullable();
             $table->timestamps();
         });
     }

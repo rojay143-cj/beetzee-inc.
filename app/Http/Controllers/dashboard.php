@@ -32,6 +32,7 @@ class dashboard extends Controller
     }
     public function member_dashboard(){
         $auth = Auth::user();
+        $disc = DB::table('discount')->get();
         $users = DB::table('users')
         ->join('role', 'users.role_id', '=', 'role.id')
         ->leftJoin('expenses', 'users.id', '=', 'expenses.user_id')
@@ -50,7 +51,7 @@ class dashboard extends Controller
         if($auth->role_id == 1001){
             return redirect()->back()->with('error', "You're trying to access unauthorized page");
         }else{
-            return view('page.member.dashboard')->with(['users' => $users, 'history' => $history]);
+            return view('page.member.dashboard')->with(['users' => $users, 'history' => $history, 'disc' => $disc]);
         }
     }
 }

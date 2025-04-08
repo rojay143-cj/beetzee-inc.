@@ -12,9 +12,12 @@ class member extends Controller
     {
         $validate = $request->validate([
             'amount' => 'required|integer',
+            'ref_num' => 'nullable|string|unique:trans_hitory,ref_num',
             'user_id' => 'required|integer',
         ]);
-
+        if(!$validate){
+            return redirect()->back()->with('error', 'Please fill all the fields');
+        }
         $expense = DB::table('expenses')->where('user_id', $validate['user_id'])->first();
         $discount = DB::table('discount')->get();
         $newExpense = ($expense ? $expense->amount : 0) + $validate['amount'];
@@ -42,7 +45,19 @@ class member extends Controller
                 break;
             }
         }
-        $ref_num = rand(1000000000, 9999999999);
+
+        if($validate['ref_num'] == null && $request->hasFile('receipt') == null){
+            return redirect()->back()->with('error', 'Please provide a reference number or upload a receipt.');
+        }
+        $receipt_url = null;
+        if($request->hasFile('receipt') != null){
+            $receipt_img = $request->file('receipt');
+            $receipt_name = time() . '.' . $receipt_img->getClientOriginalExtension();
+            $receipt_path = public_path('Asset/image/receipts');
+            $receipt_img->move($receipt_path, $receipt_name);
+            $receipt_url = 'Asset/image/receipts/' . $receipt_name;
+        }
+        $ref_num = $validate['ref_num'] ?? null;
         if ($expense) {
             $pay = DB::table('expenses')
                 ->where('user_id', $validate['user_id'])
@@ -70,6 +85,7 @@ class member extends Controller
                 DB::table('trans_hitory')->insert([
                     'expense_id' => $expense->id,
                     'amount' => $validate['amount'],
+                    'receipt_img' => $receipt_url,
                     'status' => 'success',
                     'type' => 'Counter',
                     'ref_num' => $ref_num,

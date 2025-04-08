@@ -30,7 +30,7 @@
                         <div class="absolute right-0 mt-5 w-[250px] h-auto bg-[#16171a] text-[#E4E4E4] text-[12px] lg:text-[14px] rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 p-4 space-y-2">
                             <p><strong>Paid:</strong> ₱{{ number_format($userInfo->amount, 2) }}</p>
                             <p><strong>Next Tier:</strong> ₱{{ number_format($userInfo->balance, 2) }}</p>
-                            <p><strong>Discount:</strong> {{ $userInfo->percentage }}%</p>
+                            <p><strong>Discount:</strong> {{ $userInfo->discount_id }}%</p>
                             <p class="text-gray-400 mt-2">Last transaction: {{ \Carbon\Carbon::parse($userInfo->updated_at)->diffForHumans() }}</p>
                             <form action="{{ route('subscribe') }}" method="POST">
                                 @csrf

@@ -12,7 +12,7 @@
             @if ($users->discount_id == 0)
             <span>Discount: 0%</span>
             @else
-            <span>Discount: {{ $users->percentage }}%</span>
+            <span>Discount: {{ $users->discount_id }}%</span>
             @endif
         </div>
         <div class="bg-[#313239] p-3 rounded-lg flex flex-row items-center gap-2 w-[80%]">
@@ -21,19 +21,19 @@
         </div>
         <div class="bg-[#313239] p-3 rounded-lg flex flex-row items-center gap-2 w-[70%]">
             <i class="fa-solid fa-rectangle-list text-lg text-[#0000FF]"></i>
-            @if($users->discount_id == 0)
-                    <p>Get: 7%</p>
+            @if($users->discount_id === $disc[0]->percentage)
+                    <p>Get: {{$disc[1]->percentage}}%</p>
                     @elseif ($users->discount_id == 7)
-                    <p>Get: 15%</p>
+                    <p>Get: {{$disc[2]->percentage}}%</p>
                     @elseif ($users->discount_id == 15)
-                    <p>Get: 20%</p>
+                    <p>Get: {{$disc[3]->percentage}}%</p>
                     @else
                     <p>Premium customer</p>
                     @endif
         </div>
         <div class="bg-[#313239] p-3 rounded-lg flex flex-row items-center gap-2 w-[60%]">
             <i class="fa-regular fa-calendar-days text-lg text-[#8B00FF]"></i>
-            <span>Paid last: {{ ($users->expense_updated_at) }}</span>
+            <span>Paid last: {{ \Carbon\Carbon::parse($users->updated_at)->format('M d, Y') }}</span>
         </div>
     </div>
 </div>
