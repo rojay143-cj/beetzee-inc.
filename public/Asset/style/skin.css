@@ -1,0 +1,91 @@
+.bg_logo_backdrop{
+    background-image: url('../logo/back_drop_logo.png');
+}.bg-banner{
+    background-image: url('../image/section_01/banner.jpg');
+}.bg-section_2_2{
+    background-image: url('../image/section_2_2/universe.jfif');
+}
+.bg-banner2{
+    background-image: url('../image/section_01/banner1.jpg');
+}.bg-section_2{
+    background-image: url('../image/section_01/section_2.jpg');
+}.bg-section_3{
+    background-image: url('../image/section_03/section_2_bg.webp');
+}.bg_about{
+    background-image: url('../image/section_2_2/bg.jpg');
+}.contactBG{
+    background-image: url('../image/section_05/contact_bg.jfif');
+}
+.scrollbar{
+    scrollbar-width: thin;
+    scrollbar-color: #E4E4E4 #00000000;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}p{
+    unicode-bidi: isolate;
+}.glow {
+    color: rgba(0, 0, 0, 0);
+    mix-blend-mode: plus-lighter;
+    -webkit-text-stroke: 0.060em #E4E4E4;
+}
+.dashboard_ico {
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    color: #fff;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(233, 183, 32, 0.895), 0 0 20px rgba(255, 206, 31, 0.7), 0 0 30px rgba(255, 228, 20, 0.7);
+    transition: box-shadow 0.3s ease-in-out;
+}.dashboard_ico:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1), 0 0 60px rgba(0, 255, 255, 1);
+}
+
+.profile_ico {
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    color: #fff;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(32, 255, 196, 0.7), 0 0 20px rgba(27, 235, 180, 0.7), 0 0 30px rgba(52, 255, 208, 0.7);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.profile_ico:hover {
+    box-shadow: 0 0 20px rgba(160, 32, 240, 1), 0 0 40px rgba(160, 32, 240, 1), 0 0 60px rgba(160, 32, 240, 1);
+}
+
+.noscrollbar{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.noscrollbar::-webkit-scrollbar{
+    display: none;
+}
+@keyframes slideLeft{
+    from{
+        transform: translateX(100%);
+    }to{
+        transform: translateX(0%);
+    }
+}
+.slideLeft{
+    animation-name: slideLeft;
+    animation-duration: 1s;
+    animation-timing-function: all;
+}
+@keyframes growImage{
+    from{
+        transform: scale(0);
+    }to{
+        transform: scale(1);
+    }
+}.growImage{
+    animation: growImage 0.7s ease-in-out;
+}
+.scale-up {
+    transform: scale(1.2);
+    transition: transform ease-in;
+}

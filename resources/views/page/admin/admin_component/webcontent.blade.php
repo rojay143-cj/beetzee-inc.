@@ -1,0 +1,19 @@
+<section id="web_content" class="w-full h-full relative z-40 bg-[#1a1a1a] text-white p-6 rounded-lg shadow-lg mt-10 md:mt-16 lg:mt-0 overflow-y-auto scrollbar">
+    @include('page.admin.admin_component.sections.banner.banner_con')
+    <br>
+    <hr>
+    <br>
+    @include('page.admin.admin_component.sections.services.service_con')
+    <br>
+    <hr>
+    <br>
+    @include('page.admin.admin_component.sections.about.aboutus')
+    <br>
+    <hr>
+    <br>
+    @include('page.admin.admin_component.sections.milestone.milestone')
+    <br>
+    <hr>
+    <br>
+    @include('page.admin.admin_component.sections.contact.contact')
+</section>
